@@ -5,11 +5,11 @@ import products from "@/utils/data";
 export default function ProductItem({ product }) {
   return (
     <div className="card">
-      <Link href={`/product/${product.slug}`}>
+      <Link href={`/products/${product.slug}`}>
         <img
           src={product.image}
           alt={product.name}
-          className="rounded shadow"
+          className="rounded shadow object-scale-down"
         />
       </Link>
       <div className="flex flex-column items-center justify-center">

@@ -22,13 +22,13 @@ const data = {
             rating: 4.5,
             numReviews: 10,
             stockAmount: 8,
-            description: 'Official merch for the Fidget E.P'
+            description: 'Official merch for the Fidget E.P.'
         },
         {
-            name: 'Sigil Joggers',
-            slug: 'Sigil Joggers',
-            category: 'pants',
-            image: 'https://i.imgur.com/1yBCyQL.jpg',
+            name: 'Sigil Sweatsuit',
+            slug: 'Sigil Sweatsuit',
+            category: 'two piece',
+            image: 'https://i.imgur.com/u8KfBem.jpg',
             price: 90,
             brand: 'Shades',
             rating: 5.0,
@@ -61,16 +61,16 @@ const data = {
             description: 'Beanie with the Of The Trees logo'
         },
         {
-            name: 'Galaxy Jersey',
-            slug: 'Galaxy Jersey',
-            category: 'shirt',
-            image: '/images/shirt1.jpg',
+            name: 'Old Skool',
+            slug: 'Old Skool',
+            category: 'shoes',
+            image: 'https://i.imgur.com/n8dtAAb.jpg',
             price: 80,
-            brand: 'Deep Dark & Dangerous',
-            rating: 4.8,
-            numReviews: 12,
+            brand: 'Vans',
+            rating: 4.7,
+            numReviews: 38,
             stockAmount: 20,
-            description: 'The latest soccer jersey in our product line'
+            description: 'Tried and true'
         },
         
     ]
