@@ -29,7 +29,7 @@ const data = {
             slug: 'Sigil Sweatsuit',
             category: 'two piece',
             image: 'https://i.imgur.com/u8KfBem.jpg',
-            price: 90,
+            price: 150,
             brand: 'Shades',
             rating: 5.0,
             numReviews: 20,
