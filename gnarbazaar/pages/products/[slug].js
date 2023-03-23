@@ -17,6 +17,10 @@ export default function ProductShow() {
   const addToCartHandler = () => {
     const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
     const quantity = existItem ? existItem.quantity + 1 : 1;
+    if (product.stockAmount < quantity) {
+      alert('Sorry, Product out of stock')
+      return;
+    }
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
   };
   return (
