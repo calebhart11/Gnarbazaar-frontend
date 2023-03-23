@@ -36,3 +36,6 @@ p {
 .primary-button {
   @apply rounded bg-emerald-300 py-2 px-4 m-2 shadow outline-none hover:bg-emerald-400 active:bg-emerald-500
 }
+input,select,textarea {
+  @apply rounded border p-2 outline-none ring-emerald-300 focus:ring;
+}
