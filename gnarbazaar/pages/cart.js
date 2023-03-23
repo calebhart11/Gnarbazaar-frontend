@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { XCircleIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
-export default function Cart() {
+import dynamic from 'next/dynamic';
+ function Cart() {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const {
@@ -23,7 +24,7 @@ export default function Cart() {
       <h1 className="mb-4 text-xl">Shopping Cart</h1>
       {cartItems.length === 0 ? (
         <div>
-          Uh oh, your Cart is empty. <Link href="/">Let's change that!</Link>
+          Uh oh, your cart is empty. <Link href="/">Let's change that!</Link>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">
@@ -103,3 +104,4 @@ export default function Cart() {
     </Layout>
   );
 }
+export default dynamic(() => Promise.resolve(Cart), {ssr: false})
