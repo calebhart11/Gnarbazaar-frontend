@@ -15,7 +15,9 @@ export default function ProductShow() {
     return <div>Product Not Found</div>;
   }
   const addToCartHandler = () => {
-    dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity: 1 } });
+    const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
   };
   return (
     <>
