@@ -21,8 +21,7 @@ body {
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  @apply text-emerald-600 hover:text-emerald-800
 }
 p {
   padding: 3px;
@@ -38,4 +37,7 @@ p {
 }
 input,select,textarea {
   @apply rounded border p-2 outline-none ring-emerald-300 focus:ring;
+}
+.dropdown-link {
+  @apply flex p-2 hover:bg-gray-200
 }
