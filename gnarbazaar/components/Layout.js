@@ -8,6 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { Store } from "@/utils/Store";
 import { signOut, useSession } from "next-auth/react";
 import DropdownLink from './DropdownLink';
+// import { IonIcon } from '@ionic/react';
+// import { cartOutline } from "ionicons"
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
@@ -47,7 +49,7 @@ export default function Layout({ title, children }) {
             </Link>
             <div>
               <Link href="/cart" className="p-2">
-                Cart
+              Cart
                 {cartItemsCount > 0 && (
                   <span className="ml-1 rounded-full bg-emerald-400 px-2 py-1 text-xs font-bold text-white">
                     {cartItemsCount}
