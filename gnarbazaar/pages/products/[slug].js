@@ -7,6 +7,8 @@ import Image from "next/image";
 import { Store } from "@/utils/Store";
 import Product from '@/models/Product';
 import db from '@/utils/db';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export default function ProductShow(props) {
   const {product} = props
@@ -16,12 +18,13 @@ export default function ProductShow(props) {
   if (!product) {
     return <Layout title="Product Not Found">Product Not Found</Layout>;
   }
-  const addToCartHandler = () => {
+  const addToCartHandler = async () => {
     const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    if (product.stockAmount < quantity) {
-      alert('Sorry, Product out of stock')
-      return;
+    const {data} = await axios.get(`/api/products/${product._id}`)
+
+    if (data.stockAmount < quantity) {
+      return toast.error(`${product.slug} is out of stock`)
     }
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
     router.push('/cart')
