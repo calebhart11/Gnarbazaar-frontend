@@ -30,24 +30,25 @@ export default function ShippingPage() {
     setValue("country", shippingAddress.country);
   }, [setValue, shippingAddress]);
 
-  const submitHandler = (fullName, address, city, postalCode, country) => {
+  const submitHandler = ({fullName, address, city, postalCode, country}) => {
     dispatch({
       type: "SAVE_SHIPPING_ADDRESS",
       payload: { fullName, address, city, postalCode, country },
     });
-    // Cookies.set(
-    //   "cart",
-    //   JSON.stringify({
-    //     ...cart,
-    //     shippingAddress: {
-    //       fullName,
-    //       address,
-    //       city,
-    //       postalCode,
-    //       country,  
-    //     },
-    //   })
-    // );
+    console.log({fullName,address,city,postalCode,country})
+    Cookies.set(
+      "cart",
+      JSON.stringify({
+        ...cart,
+        shippingAddress: {
+          fullName,
+          address,
+          city,
+          postalCode,
+          country,  
+        },
+      })
+    );
     router.push('/payment')
   };
   return (
@@ -60,7 +61,7 @@ export default function ShippingPage() {
           <input
             className="w-full"
             id="fullName"
-            autoFocus
+            autoFocus   
             {...register("fullName", {
               required: "Please Enter Full Name",
             })}
