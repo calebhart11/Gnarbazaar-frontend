@@ -17,7 +17,7 @@ export default function Login() {
       router.push(redirect || "/");
     }
   }, [router, session, redirect]);
-
+console.log(session)
   const {
     handleSubmit,
     register,

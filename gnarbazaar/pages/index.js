@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home({ products }) {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
-
+// console.log(products)
   const addToCartHandler = async (product) => {
     const existItem = cart.cartItems.find((x) => x.slug === product.slug);
     const quantity = existItem ? existItem.quantity + 1 : 1;
