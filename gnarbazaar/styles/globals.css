@@ -18,11 +18,10 @@ body {
   padding: 0;
   margin: 0;
   /* background-color: gray; */
-  
 }
 
 a {
-  @apply text-emerald-600 hover:text-emerald-800
+  @apply text-emerald-600 hover:text-emerald-800;
 }
 p {
   padding: 3px;
@@ -30,7 +29,7 @@ p {
 }
 
 .card {
-  @apply mb-5 block rounded-lg border border-gray-200 shadow-md
+  @apply mb-5 block rounded-lg border border-gray-200 shadow-md;
 }
 
 .primary-button {
@@ -40,10 +39,19 @@ p {
   @apply rounded bg-emerald-300 py-2 px-4 m-2 text-black shadow outline-none hover:bg-emerald-400 active:bg-emerald-500;
 }
 
-input,select,textarea {
+input,
+select,
+textarea {
   @apply rounded border p-2 outline-none ring-emerald-300 focus:ring;
 }
 
 .dropdown-link {
-  @apply flex p-2 hover:bg-gray-200
+  @apply flex p-2 hover:bg-gray-200;
+}
+
+.alert-error {
+  @apply my-3 rounded-lg bg-red-100  p-3 text-red-700;
+}
+.alert-success {
+  @apply my-3 rounded-lg bg-emerald-100 p-3 text-emerald-700;
 }

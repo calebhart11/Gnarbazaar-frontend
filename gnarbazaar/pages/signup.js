@@ -6,12 +6,14 @@ import { getError } from "@/utils/error";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import axios from "axios";
 // import { redirect } from 'next/dist/server/api-utils';
 
-export default function Login() {
+export default function SignupPage() {
   const { data: session } = useSession();
   const router = useRouter();
   const { redirect } = router.query;
+
   useEffect(() => {
     if (session?.user) {
       router.push(redirect || "/");
@@ -21,10 +23,16 @@ export default function Login() {
   const {
     handleSubmit,
     register,
+    getValues,
     formState: { errors },
   } = useForm();
-  const submitHandler = async ({ email, password }) => {
+  const submitHandler = async ({ name, email, password }) => {
     try {
+      await axios.post("/api/auth/signup", {
+        name,
+        email,
+        password,
+      });
       const result = await signIn("credentials", {
         redirect: false,
         email,
@@ -38,12 +46,27 @@ export default function Login() {
     }
   };
   return (
-    <Layout title="Login">
+    <Layout title="Create Account">
       <form
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
       >
-        <h1 className="mb-4 text-xl">Login</h1>
+        <h1 className="mb-4 text-xl">Create Account</h1>
+        <div className="mb-4">
+          <label htmlfor="name">Name</label>
+          <input
+            type="name"
+            className="w-full"
+            id="name"
+            autoFocus
+            {...register("name", {
+              required: "Please enter name",
+            })}
+          />
+          {errors.name && (
+            <div className="text-red-500">{errors.name.message}</div>
+          )}
+        </div>
         <div className="mb-4">
           <label htmlFor="email">Email</label>
           <input
@@ -57,7 +80,6 @@ export default function Login() {
             })}
             className="w-full"
             id="email"
-            autoFocus
           ></input>
           {errors.email && (
             <div className="text-red-500">{errors.email.message}</div>
@@ -83,11 +105,34 @@ export default function Login() {
           )}
         </div>
         <div className="mb-4">
-          <button className="primary-button">Login</button>
+          <label htmlFor="confirmPassword">Confirm Password</label>
+          <input
+            className="w-full"
+            type="password"
+            id="confirmPassword"
+            {...register("confirmPassword", {
+              required: "Please confirm password",
+              validate: (value) => value === getValues("password"),
+              minLength: {
+                value: 2,
+                message: "Confirm password is at least 6 characters",
+              },
+            })}
+          />
+          {errors.confirmPassword && (
+            <div className="text-red-500">{errors.confirmPassword.message}</div>
+          )}
+          {errors.confirmPassword &&
+            errors.confirmPassword.type === "validate" && (
+              <div className="text-red-500">Password does not match</div>
+            )}
+        </div>
+        <div className="mb-4">
+          <button className="primary-button">Register</button>
         </div>
         <div className="mb-4">
           No Account? &nbsp;
-          <Link href='/signup'>Signup</Link>
+          <Link href={`/signup${redirect || '/'}`}>Signup</Link>
         </div>
       </form>
     </Layout>
