@@ -51,6 +51,7 @@ function OrderPage() {
     shippingPrice,
     totalPrice,
     isPaid,
+    paidAt,
     isDelivered,
     deliveredAt,
   } = order;

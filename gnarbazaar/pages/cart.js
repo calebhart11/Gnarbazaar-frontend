@@ -32,7 +32,7 @@ import { toast } from 'react-toastify';
       <h1 className="mb-4 text-xl">Shopping Cart</h1>
       {cartItems.length === 0 ? (
         <div>
-          Uh oh, your cart is empty. <Link href="/">Let's change that!</Link>
+          Uh oh, your cart is empty. <Link href="/">Let&apos;s change that!</Link>
         </div>
       ) : (
         

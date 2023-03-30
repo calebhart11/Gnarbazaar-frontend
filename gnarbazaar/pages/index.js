@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import Layout from "@/components/Layout";
 import ProductItem from "@/components/ProductItem";
 import Product from "@/models/Product";
@@ -9,7 +9,7 @@ import { Store } from "@/utils/Store";
 import axios from "axios";
 import { toast } from 'react-toastify';
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ products }) {
   const { state, dispatch } = useContext(Store);

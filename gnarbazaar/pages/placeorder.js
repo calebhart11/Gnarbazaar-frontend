@@ -65,7 +65,7 @@ export default function PlaceOrder() {
       <h1 className="mb-4 text-xl">Place Order</h1>
       {cartItems.length === 0 ? (
         <div>
-          Uh oh, your cart is empty, <Link href="/">Let's Change that!</Link>
+          Uh oh, your cart is empty, <Link href="/">Let&nbos;s Change that!</Link>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">
