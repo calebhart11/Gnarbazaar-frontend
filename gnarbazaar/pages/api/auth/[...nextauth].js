@@ -1,7 +1,9 @@
+// import bcryptjs from "bcryptjs";
+const bcrypt = require('bcryptjs')
 import User from "@/models/User";
 import NextAuth from "next-auth/next";
 import db from "@/utils/db";
-import bcryptjs from "bcryptjs";
+// import bcryptjs from "bcryptjs";
 import  CredentialsProvider  from 'next-auth/providers/credentials';
 
 export default NextAuth({
@@ -28,7 +30,7 @@ export default NextAuth({
           email: credentials.email,
         });
         await db.disconnect();
-        if (user && bcryptjs.compareSync(credentials.password, user.password)) {
+        if (user && bcrypt.compareSync(credentials.password, user.password)) {
           return {
             _id: user._id,
             name: user.name,
