@@ -1,5 +1,5 @@
-// import bcryptjs from 'bcryptjs'
-const bcrypt = require('bcrypt')
+import bcryptjs from 'bcryptjs'
+// const bcrypt = require('bcrypt')
 import User from '@/models/User'
 import db from '@/utils/db'
 
@@ -31,7 +31,7 @@ async function handler(req, res) {
     const newUser = new User({
         name,
         email,
-        password: bcrypt.hashSync(password),
+        password: bcryptjs.hashSync(password),
         isAdmin: false,
     })
     const user = await newUser.save()

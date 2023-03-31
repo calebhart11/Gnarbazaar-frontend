@@ -53,7 +53,7 @@ export default function SignupPage() {
       >
         <h1 className="mb-4 text-xl">Create Account</h1>
         <div className="mb-4">
-          <label htmlfor="name">Name</label>
+          <label htmlFor="name">Name</label>
           <input
             type="name"
             className="w-full"
