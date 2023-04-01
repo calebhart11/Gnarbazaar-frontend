@@ -9,10 +9,17 @@ const handler = async (req, res) => {
   if (!session || !session.user.isAdmin) {
     return res.status(401).send('admin signin required');
   }
-  await db.connect();
-  const users = await User.find({});
-  await db.disconnect();
-  res.send(users);
+  // const { user } = session
+  if (req.method === 'GET') {
+    return getHandler(req,res, )
+  }
+  
 };
+const getHandler = async (req, res) => {
+  await db.connect()
+  const users = await User.find({})
+  await db.disconnect
+  res.send(users)
+}
 
 export default handler;

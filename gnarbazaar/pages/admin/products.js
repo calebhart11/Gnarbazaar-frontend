@@ -35,7 +35,7 @@ function reducer(state, action) {
       state;
   }
 }
-export default function AdminProductsScreen() {
+export default function AdminProdcutsScreen() {
   const router = useRouter();
 
   const [
@@ -106,7 +106,7 @@ export default function AdminProductsScreen() {
               <Link href="/admin/orders">Orders</Link>
             </li>
             <li>
-              <Link href="/admin/products">
+              <Link legacyBehavior href="/admin/products">
                 <a className="font-bold">Products</a>
               </Link>
             </li>
@@ -155,7 +155,7 @@ export default function AdminProductsScreen() {
                       <td className=" p-5 ">{product.stockAmount}</td>
                       <td className=" p-5 ">{product.rating}</td>
                       <td className=" p-5 ">
-                        <Link href={`/admin/product/${product._id}`}>
+                        <Link legacyBehavior href={`/admin/product/${product._id}`}>
                           <a type="button" className="default-button">
                             Edit
                           </a>
@@ -181,4 +181,4 @@ export default function AdminProductsScreen() {
   );
 }
 
-AdminProductsScreen.auth = { adminOnly: true };
+AdminProdcutsScreen.auth = { adminOnly: true };

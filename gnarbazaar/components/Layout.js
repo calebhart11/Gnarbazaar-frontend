@@ -71,6 +71,13 @@ export default function Layout({ title, children }) {
                   <Menu.Item>
                     <DropdownLink className='dropdown-link' href='/order-history'>Order History</DropdownLink>
                   </Menu.Item>
+                  {
+                      session.user.isAdmin && (
+                        <Menu.Item>
+                          <DropdownLink className='dropdown-link' href='/admin/dashboard'>Admin Dashboard</DropdownLink>
+                        </Menu.Item>
+                      )
+                    }
                   <Menu.Item>
                     <DropdownLink className='dropdown-link' href='#' onClick={logoutClickHandler}>Logout</DropdownLink>
                   </Menu.Item>
@@ -86,7 +93,7 @@ export default function Layout({ title, children }) {
         </header>
         <main className="container m-auto mt-4 px-3">{children}</main>
         <footer className="flex h-10 justify-center items-center shadow-inner">
-          Copyright @ 2023 Gnarbazaar
+          {/* Copyright @ 2023 Gnarbazaar */}
         </footer>
       </div>
     </>

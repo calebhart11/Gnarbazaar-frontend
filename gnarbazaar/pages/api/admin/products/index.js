@@ -9,7 +9,7 @@ const handler = async (req, res) => {
   if (!session || !session.user.isAdmin) {
     return res.status(401).send('admin signin required');
   }
-  // const { user } = session;
+//   const { user } = session;
   if (req.method === 'GET') {
     return getHandler(req, res);
   } else if (req.method === 'POST') {
@@ -27,7 +27,7 @@ const postHandler = async (req, res) => {
     price: 0,
     category: 'sample category',
     brand: 'sample brand',
-    countInStock: 0,
+    stockAmount: 0,
     description: 'sample description',
     rating: 0,
     numReviews: 0,
@@ -42,5 +42,5 @@ const getHandler = async (req, res) => {
   const products = await Product.find({});
   await db.disconnect();
   res.send(products);
-};
+}
 export default handler;

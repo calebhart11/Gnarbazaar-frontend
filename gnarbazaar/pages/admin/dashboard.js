@@ -12,8 +12,8 @@ import {
   Legend,
 } from 'chart.js';
 import React, { useEffect, useReducer } from 'react';
-import Layout from '../../components/Layout';
-import { getError } from '../../utils/error';
+import { getError } from '@/utils/error';
+import Layout from '@/components/Layout';
 
 chartjs.register(
   CategoryScale,
@@ -82,8 +82,8 @@ function AdminDashboardScreen() {
         <div>
           <ul>
             <li>
-              <Link href="/admin/dashboard">
-                <a className="font-bold">Dashboard</a>
+              <Link href="/admin/dashboard" className="font-bold">
+                 Dashboard
               </Link>
             </li>
             <li>
