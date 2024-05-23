@@ -1,4 +1,5 @@
 import bcryptjs from 'bcryptjs'
+// const bcrypt = require('bcrypt')
 import User from '@/models/User'
 import db from '@/utils/db'
 

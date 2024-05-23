@@ -1,4 +1,6 @@
-import bcrypt from "bcryptjs";
+// import bcrypt from "bcryptjs";
+const bcrypt = require('bcrypt')
+
 const data = {
   users: [
     {
